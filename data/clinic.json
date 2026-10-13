@@ -1,0 +1,1442 @@
+{
+  "clinic": {
+    "name": "Sanjeevani Clinic",
+    "city": "Bengaluru",
+    "address": "14, 5th Cross, Indiranagar, Bengaluru 560038",
+    "phone": "080-41234567",
+    "timezone": "Asia/Kolkata",
+    "today": "2026-10-12T08:30",
+    "open_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ],
+    "open_hours": [
+      "09:00",
+      "17:00"
+    ],
+    "schedule_week": [
+      "2026-10-12",
+      "2026-10-16"
+    ],
+    "slot_minutes": 30,
+    "emergency": {
+      "has_emergency_services": false,
+      "ambulance": "108",
+      "nearest_hospital": "City General Hospital, 100 Feet Road, Indiranagar (2 km) - 24x7 emergency"
+    }
+  },
+  "visit_types": [
+    {
+      "id": "first_consultation",
+      "name": "First consultation",
+      "description": "First visit to this doctor for a new problem."
+    },
+    {
+      "id": "follow_up",
+      "name": "Follow-up",
+      "description": "Return visit to the same doctor about the same problem."
+    },
+    {
+      "id": "report_review",
+      "name": "Report review",
+      "description": "Show the doctor test results they asked for."
+    }
+  ],
+  "doctors": [
+    {
+      "id": "D1",
+      "name": "Dr. Anil Mehta",
+      "specialty": "General Physician",
+      "day_off": "Wed",
+      "hours": [
+        "09:00",
+        "13:00"
+      ],
+      "age_range": [
+        0,
+        120
+      ]
+    },
+    {
+      "id": "D2",
+      "name": "Dr. Kavita Rao",
+      "specialty": "General Physician",
+      "day_off": "Fri",
+      "hours": [
+        "13:00",
+        "17:00"
+      ],
+      "age_range": [
+        0,
+        120
+      ]
+    },
+    {
+      "id": "D3",
+      "name": "Dr. Sunita Iyer",
+      "specialty": "Pediatrician",
+      "day_off": "Thu",
+      "hours": [
+        "10:00",
+        "14:00"
+      ],
+      "age_range": [
+        0,
+        17
+      ]
+    },
+    {
+      "id": "D4",
+      "name": "Dr. Rohan Kapoor",
+      "specialty": "Dermatologist",
+      "day_off": "Tue",
+      "hours": [
+        "14:00",
+        "17:00"
+      ],
+      "age_range": [
+        0,
+        120
+      ]
+    },
+    {
+      "id": "D5",
+      "name": "Dr. Farhan Siddiqui",
+      "specialty": "Orthopedics",
+      "day_off": "Mon",
+      "hours": [
+        "09:00",
+        "12:00"
+      ],
+      "age_range": [
+        0,
+        120
+      ]
+    },
+    {
+      "id": "D6",
+      "name": "Dr. Meera Nair",
+      "specialty": "ENT",
+      "day_off": "Wed",
+      "hours": [
+        "11:00",
+        "15:00"
+      ],
+      "age_range": [
+        0,
+        120
+      ]
+    }
+  ],
+  "patients": [
+    {
+      "id": "P001",
+      "name": "Priya Sharma",
+      "phone": "9820011223",
+      "age": 34
+    },
+    {
+      "id": "P002",
+      "name": "Aarav Sharma",
+      "phone": "9820011223",
+      "age": 6
+    },
+    {
+      "id": "P003",
+      "name": "Kamala Sharma",
+      "phone": "9820011223",
+      "age": 63
+    },
+    {
+      "id": "P004",
+      "name": "Rahul Verma",
+      "phone": "9811122334",
+      "age": 41
+    },
+    {
+      "id": "P005",
+      "name": "Rahul Verma",
+      "phone": "9900012345",
+      "age": 27
+    },
+    {
+      "id": "P006",
+      "name": "Neha Gupta",
+      "phone": "9845098450",
+      "age": 29
+    },
+    {
+      "id": "P007",
+      "name": "Lakshmi Reddy",
+      "phone": "9731122110",
+      "age": 38
+    },
+    {
+      "id": "P008",
+      "name": "Ishaan Reddy",
+      "phone": "9731122110",
+      "age": 9
+    },
+    {
+      "id": "P009",
+      "name": "Ananya Pillai",
+      "phone": "9008877665",
+      "age": 17
+    },
+    {
+      "id": "P010",
+      "name": "Kabir Joshi",
+      "phone": "9886655443",
+      "age": 18
+    },
+    {
+      "id": "P011",
+      "name": "Ramesh Iyengar",
+      "phone": "9448012345",
+      "age": 72
+    },
+    {
+      "id": "P012",
+      "name": "Deepa Bansal",
+      "phone": "6838637940",
+      "age": 20
+    },
+    {
+      "id": "P013",
+      "name": "Venkat Shetty",
+      "phone": "7351161559",
+      "age": 29
+    },
+    {
+      "id": "P014",
+      "name": "Ravi Kulkarni",
+      "phone": "9184959310",
+      "age": 21
+    },
+    {
+      "id": "P015",
+      "name": "Pooja Saxena",
+      "phone": "7164752553",
+      "age": 68
+    },
+    {
+      "id": "P016",
+      "name": "Harpreet Menon",
+      "phone": "7832764835",
+      "age": 63
+    },
+    {
+      "id": "P017",
+      "name": "Divya Naidu",
+      "phone": "8641395376",
+      "age": 68
+    },
+    {
+      "id": "P018",
+      "name": "Anjali Deshpande",
+      "phone": "7884969653",
+      "age": 60
+    },
+    {
+      "id": "P019",
+      "name": "Suresh Subramanian",
+      "phone": "6122691669",
+      "age": 27
+    },
+    {
+      "id": "P020",
+      "name": "Usha Saxena",
+      "phone": "6184514627",
+      "age": 52
+    },
+    {
+      "id": "P021",
+      "name": "Imran Bansal",
+      "phone": "7814893252",
+      "age": 65
+    },
+    {
+      "id": "P022",
+      "name": "Arjun Das",
+      "phone": "8701543039",
+      "age": 68
+    },
+    {
+      "id": "P023",
+      "name": "Ravi Subramanian",
+      "phone": "7278248963",
+      "age": 24
+    },
+    {
+      "id": "P024",
+      "name": "Sanjay D'Souza",
+      "phone": "8657871331",
+      "age": 67
+    },
+    {
+      "id": "P025",
+      "name": "Abdul Rao",
+      "phone": "6103105183",
+      "age": 56
+    },
+    {
+      "id": "P026",
+      "name": "Kavya Krishnan",
+      "phone": "9376311656",
+      "age": 50
+    },
+    {
+      "id": "P027",
+      "name": "Anjali Gill",
+      "phone": "7178108013",
+      "age": 27
+    },
+    {
+      "id": "P028",
+      "name": "Bhavana Malhotra",
+      "phone": "6260647468",
+      "age": 50
+    },
+    {
+      "id": "P029",
+      "name": "Ritu Banerjee",
+      "phone": "6980500978",
+      "age": 50
+    },
+    {
+      "id": "P030",
+      "name": "Sangeeta Menon",
+      "phone": "7191361939",
+      "age": 52
+    },
+    {
+      "id": "P031",
+      "name": "Simran Tiwari",
+      "phone": "8435346247",
+      "age": 58
+    },
+    {
+      "id": "P032",
+      "name": "Arjun Gill",
+      "phone": "6183842513",
+      "age": 67
+    },
+    {
+      "id": "P033",
+      "name": "Usha D'Souza",
+      "phone": "8980841241",
+      "age": 29
+    },
+    {
+      "id": "P034",
+      "name": "Imran Hegde",
+      "phone": "7534874016",
+      "age": 66
+    },
+    {
+      "id": "P035",
+      "name": "Kavya Bose",
+      "phone": "8278680112",
+      "age": 21
+    },
+    {
+      "id": "P036",
+      "name": "Usha Deshpande",
+      "phone": "9204505331",
+      "age": 72
+    },
+    {
+      "id": "P037",
+      "name": "Aditya Das",
+      "phone": "7322602563",
+      "age": 54
+    },
+    {
+      "id": "P038",
+      "name": "Siddharth Saxena",
+      "phone": "6733754330",
+      "age": 69
+    },
+    {
+      "id": "P039",
+      "name": "Pooja Subramanian",
+      "phone": "8586850142",
+      "age": 44
+    },
+    {
+      "id": "P040",
+      "name": "Farah Singh",
+      "phone": "8569816934",
+      "age": 35
+    },
+    {
+      "id": "P041",
+      "name": "Usha Fernandes",
+      "phone": "7561595148",
+      "age": 46
+    },
+    {
+      "id": "P042",
+      "name": "Deepak Hegde",
+      "phone": "9995777387",
+      "age": 44
+    },
+    {
+      "id": "P043",
+      "name": "Vihaan Hegde",
+      "phone": "9995777387",
+      "age": 17
+    },
+    {
+      "id": "P044",
+      "name": "Kiara Menon",
+      "phone": "7433200379",
+      "age": 9
+    },
+    {
+      "id": "P045",
+      "name": "Navya Singh",
+      "phone": "7676320163",
+      "age": 2
+    },
+    {
+      "id": "P046",
+      "name": "Navya Nair",
+      "phone": "6727889579",
+      "age": 16
+    },
+    {
+      "id": "P047",
+      "name": "Shaurya Jain",
+      "phone": "9277434873",
+      "age": 16
+    },
+    {
+      "id": "P048",
+      "name": "Suresh Rao",
+      "phone": "8812236231",
+      "age": 37
+    },
+    {
+      "id": "P049",
+      "name": "Dhruv Rao",
+      "phone": "8812236231",
+      "age": 2
+    },
+    {
+      "id": "P050",
+      "name": "Arjun Nair",
+      "phone": "9690967054",
+      "age": 49
+    },
+    {
+      "id": "P051",
+      "name": "Shaurya Nair",
+      "phone": "9690967054",
+      "age": 14
+    },
+    {
+      "id": "P052",
+      "name": "Venkat Agarwal",
+      "phone": "9706562729",
+      "age": 39
+    },
+    {
+      "id": "P053",
+      "name": "Reyansh Agarwal",
+      "phone": "9706562729",
+      "age": 17
+    },
+    {
+      "id": "P054",
+      "name": "Arjun Bose",
+      "phone": "9204653755",
+      "age": 30
+    },
+    {
+      "id": "P055",
+      "name": "Riya Bose",
+      "phone": "9204653755",
+      "age": 0
+    },
+    {
+      "id": "P056",
+      "name": "Divya Jain",
+      "phone": "6805310033",
+      "age": 39
+    },
+    {
+      "id": "P057",
+      "name": "Anika Jain",
+      "phone": "6805310033",
+      "age": 13
+    },
+    {
+      "id": "P058",
+      "name": "Krish Tiwari",
+      "phone": "9452991241",
+      "age": 15
+    },
+    {
+      "id": "P059",
+      "name": "Ira Qureshi",
+      "phone": "7193149190",
+      "age": 9
+    },
+    {
+      "id": "P060",
+      "name": "Arnav Menon",
+      "phone": "8067165726",
+      "age": 13
+    },
+    {
+      "id": "P061",
+      "name": "Anika Das",
+      "phone": "9769453147",
+      "age": 16
+    },
+    {
+      "id": "P062",
+      "name": "Harsh Gowda",
+      "phone": "8273545494",
+      "age": 36
+    },
+    {
+      "id": "P063",
+      "name": "Ira Gowda",
+      "phone": "8273545494",
+      "age": 14
+    },
+    {
+      "id": "P064",
+      "name": "Suresh Hegde",
+      "phone": "7634957885",
+      "age": 47
+    },
+    {
+      "id": "P065",
+      "name": "Harsh D'Souza",
+      "phone": "9444313518",
+      "age": 66
+    },
+    {
+      "id": "P066",
+      "name": "Shruti Krishnan",
+      "phone": "9498941343",
+      "age": 63
+    },
+    {
+      "id": "P067",
+      "name": "Anjali Nair",
+      "phone": "6842710947",
+      "age": 38
+    },
+    {
+      "id": "P068",
+      "name": "Divya Shetty",
+      "phone": "9116719022",
+      "age": 40
+    },
+    {
+      "id": "P069",
+      "name": "Deepa Kulkarni",
+      "phone": "9999386774",
+      "age": 79
+    },
+    {
+      "id": "P070",
+      "name": "Farah Nair",
+      "phone": "6334123281",
+      "age": 46
+    },
+    {
+      "id": "P071",
+      "name": "Farah Agarwal",
+      "phone": "8034471349",
+      "age": 45
+    },
+    {
+      "id": "P072",
+      "name": "Sneha Mishra",
+      "phone": "7242102499",
+      "age": 78
+    },
+    {
+      "id": "P073",
+      "name": "Gurpreet Hegde",
+      "phone": "9488771906",
+      "age": 47
+    },
+    {
+      "id": "P074",
+      "name": "Pooja Rao",
+      "phone": "6490278742",
+      "age": 57
+    },
+    {
+      "id": "P075",
+      "name": "Harini D'Souza",
+      "phone": "9468071545",
+      "age": 73
+    },
+    {
+      "id": "P076",
+      "name": "Sangeeta Jain",
+      "phone": "6876038597",
+      "age": 68
+    },
+    {
+      "id": "P077",
+      "name": "Anjali Mishra",
+      "phone": "7477109324",
+      "age": 67
+    },
+    {
+      "id": "P078",
+      "name": "Deepa Jain",
+      "phone": "6712748467",
+      "age": 54
+    },
+    {
+      "id": "P079",
+      "name": "Kavya Qureshi",
+      "phone": "7982146584",
+      "age": 34
+    },
+    {
+      "id": "P080",
+      "name": "Abdul Tiwari",
+      "phone": "9278755886",
+      "age": 37
+    },
+    {
+      "id": "P081",
+      "name": "Nikhil Rao",
+      "phone": "9360576627",
+      "age": 39
+    },
+    {
+      "id": "P082",
+      "name": "Abdul Gowda",
+      "phone": "6718702621",
+      "age": 27
+    },
+    {
+      "id": "P083",
+      "name": "Gurpreet Qureshi",
+      "phone": "6586578091",
+      "age": 35
+    },
+    {
+      "id": "P084",
+      "name": "Naveen Krishnan",
+      "phone": "6611724005",
+      "age": 62
+    },
+    {
+      "id": "P085",
+      "name": "Harini Deshpande",
+      "phone": "7869222196",
+      "age": 37
+    },
+    {
+      "id": "P086",
+      "name": "Nandini Tiwari",
+      "phone": "8647436713",
+      "age": 23
+    },
+    {
+      "id": "P087",
+      "name": "Nikhil Hegde",
+      "phone": "6640909743",
+      "age": 41
+    },
+    {
+      "id": "P088",
+      "name": "Shruti Das",
+      "phone": "8210470952",
+      "age": 41
+    },
+    {
+      "id": "P089",
+      "name": "Harini Chatterjee",
+      "phone": "7285884247",
+      "age": 37
+    },
+    {
+      "id": "P090",
+      "name": "Venkat Naidu",
+      "phone": "6712368516",
+      "age": 37
+    },
+    {
+      "id": "P091",
+      "name": "Nandini Fernandes",
+      "phone": "8965137098",
+      "age": 53
+    },
+    {
+      "id": "P092",
+      "name": "Pooja Bose",
+      "phone": "9461200471",
+      "age": 58
+    },
+    {
+      "id": "P093",
+      "name": "Siddharth Gill",
+      "phone": "8869261796",
+      "age": 75
+    },
+    {
+      "id": "P094",
+      "name": "Nandini Banerjee",
+      "phone": "9735158506",
+      "age": 36
+    },
+    {
+      "id": "P095",
+      "name": "Lavanya Menon",
+      "phone": "7900532931",
+      "age": 80
+    },
+    {
+      "id": "P096",
+      "name": "Shruti Jain",
+      "phone": "7529042284",
+      "age": 54
+    },
+    {
+      "id": "P097",
+      "name": "Arjun Deshpande",
+      "phone": "6539502402",
+      "age": 26
+    },
+    {
+      "id": "P098",
+      "name": "Pooja Agarwal",
+      "phone": "9589178390",
+      "age": 52
+    },
+    {
+      "id": "P099",
+      "name": "Mohan Hegde",
+      "phone": "9007661771",
+      "age": 77
+    },
+    {
+      "id": "P100",
+      "name": "Suresh Deshpande",
+      "phone": "8998569847",
+      "age": 39
+    }
+  ],
+  "appointments": [
+    {
+      "id": "A001",
+      "patient_id": "P012",
+      "doctor_id": "D1",
+      "start": "2026-10-12T09:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A002",
+      "patient_id": "P013",
+      "doctor_id": "D1",
+      "start": "2026-10-12T09:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A003",
+      "patient_id": "P014",
+      "doctor_id": "D1",
+      "start": "2026-10-12T10:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A004",
+      "patient_id": "P015",
+      "doctor_id": "D1",
+      "start": "2026-10-12T10:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A005",
+      "patient_id": "P016",
+      "doctor_id": "D1",
+      "start": "2026-10-12T11:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A006",
+      "patient_id": "P086",
+      "doctor_id": "D6",
+      "start": "2026-10-12T11:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A007",
+      "patient_id": "P043",
+      "doctor_id": "D3",
+      "start": "2026-10-12T12:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A008",
+      "patient_id": "P005",
+      "doctor_id": "D6",
+      "start": "2026-10-12T12:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A009",
+      "patient_id": "P017",
+      "doctor_id": "D1",
+      "start": "2026-10-12T12:30",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A010",
+      "patient_id": "P044",
+      "doctor_id": "D3",
+      "start": "2026-10-12T12:30",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A011",
+      "patient_id": "P045",
+      "doctor_id": "D3",
+      "start": "2026-10-12T13:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A012",
+      "patient_id": "P027",
+      "doctor_id": "D2",
+      "start": "2026-10-12T13:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A013",
+      "patient_id": "P087",
+      "doctor_id": "D6",
+      "start": "2026-10-12T13:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A014",
+      "patient_id": "P088",
+      "doctor_id": "D6",
+      "start": "2026-10-12T14:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A015",
+      "patient_id": "P028",
+      "doctor_id": "D2",
+      "start": "2026-10-12T14:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A016",
+      "patient_id": "P009",
+      "doctor_id": "D4",
+      "start": "2026-10-12T15:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A017",
+      "patient_id": "P064",
+      "doctor_id": "D4",
+      "start": "2026-10-12T15:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A018",
+      "patient_id": "P029",
+      "doctor_id": "D2",
+      "start": "2026-10-12T16:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A019",
+      "patient_id": "P030",
+      "doctor_id": "D2",
+      "start": "2026-10-12T16:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A020",
+      "patient_id": "P018",
+      "doctor_id": "D1",
+      "start": "2026-10-13T09:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A021",
+      "patient_id": "P075",
+      "doctor_id": "D5",
+      "start": "2026-10-13T09:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A022",
+      "patient_id": "P076",
+      "doctor_id": "D5",
+      "start": "2026-10-13T10:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A023",
+      "patient_id": "P046",
+      "doctor_id": "D3",
+      "start": "2026-10-13T10:30",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A024",
+      "patient_id": "P001",
+      "doctor_id": "D1",
+      "start": "2026-10-13T11:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A025",
+      "patient_id": "P047",
+      "doctor_id": "D3",
+      "start": "2026-10-13T11:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A026",
+      "patient_id": "P089",
+      "doctor_id": "D6",
+      "start": "2026-10-13T11:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A027",
+      "patient_id": "P077",
+      "doctor_id": "D5",
+      "start": "2026-10-13T11:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A028",
+      "patient_id": "P090",
+      "doctor_id": "D6",
+      "start": "2026-10-13T11:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A029",
+      "patient_id": "P019",
+      "doctor_id": "D1",
+      "start": "2026-10-13T12:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A030",
+      "patient_id": "P049",
+      "doctor_id": "D3",
+      "start": "2026-10-13T12:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A031",
+      "patient_id": "P091",
+      "doctor_id": "D6",
+      "start": "2026-10-13T12:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A032",
+      "patient_id": "P051",
+      "doctor_id": "D3",
+      "start": "2026-10-13T12:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A033",
+      "patient_id": "P031",
+      "doctor_id": "D2",
+      "start": "2026-10-13T14:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A034",
+      "patient_id": "P092",
+      "doctor_id": "D6",
+      "start": "2026-10-13T14:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A035",
+      "patient_id": "P032",
+      "doctor_id": "D2",
+      "start": "2026-10-13T15:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A036",
+      "patient_id": "P033",
+      "doctor_id": "D2",
+      "start": "2026-10-13T16:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A037",
+      "patient_id": "P002",
+      "doctor_id": "D3",
+      "start": "2026-10-14T10:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A038",
+      "patient_id": "P053",
+      "doctor_id": "D3",
+      "start": "2026-10-14T11:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A039",
+      "patient_id": "P078",
+      "doctor_id": "D5",
+      "start": "2026-10-14T11:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A040",
+      "patient_id": "P055",
+      "doctor_id": "D3",
+      "start": "2026-10-14T11:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A041",
+      "patient_id": "P079",
+      "doctor_id": "D5",
+      "start": "2026-10-14T11:30",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A042",
+      "patient_id": "P057",
+      "doctor_id": "D3",
+      "start": "2026-10-14T12:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A043",
+      "patient_id": "P058",
+      "doctor_id": "D3",
+      "start": "2026-10-14T13:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A044",
+      "patient_id": "P059",
+      "doctor_id": "D3",
+      "start": "2026-10-14T13:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A045",
+      "patient_id": "P034",
+      "doctor_id": "D2",
+      "start": "2026-10-14T14:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A046",
+      "patient_id": "P065",
+      "doctor_id": "D4",
+      "start": "2026-10-14T14:30",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A047",
+      "patient_id": "P035",
+      "doctor_id": "D2",
+      "start": "2026-10-14T15:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A048",
+      "patient_id": "P066",
+      "doctor_id": "D4",
+      "start": "2026-10-14T15:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A049",
+      "patient_id": "P036",
+      "doctor_id": "D2",
+      "start": "2026-10-14T15:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A050",
+      "patient_id": "P037",
+      "doctor_id": "D2",
+      "start": "2026-10-14T16:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A051",
+      "patient_id": "P067",
+      "doctor_id": "D4",
+      "start": "2026-10-14T16:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A052",
+      "patient_id": "P080",
+      "doctor_id": "D5",
+      "start": "2026-10-15T09:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A053",
+      "patient_id": "P020",
+      "doctor_id": "D1",
+      "start": "2026-10-15T10:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A054",
+      "patient_id": "P021",
+      "doctor_id": "D1",
+      "start": "2026-10-15T10:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A055",
+      "patient_id": "P081",
+      "doctor_id": "D5",
+      "start": "2026-10-15T10:30",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A056",
+      "patient_id": "P093",
+      "doctor_id": "D6",
+      "start": "2026-10-15T11:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A057",
+      "patient_id": "P022",
+      "doctor_id": "D1",
+      "start": "2026-10-15T11:30",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A058",
+      "patient_id": "P023",
+      "doctor_id": "D1",
+      "start": "2026-10-15T12:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A059",
+      "patient_id": "P094",
+      "doctor_id": "D6",
+      "start": "2026-10-15T12:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A060",
+      "patient_id": "P095",
+      "doctor_id": "D6",
+      "start": "2026-10-15T12:30",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A061",
+      "patient_id": "P038",
+      "doctor_id": "D2",
+      "start": "2026-10-15T13:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A062",
+      "patient_id": "P096",
+      "doctor_id": "D6",
+      "start": "2026-10-15T13:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A063",
+      "patient_id": "P004",
+      "doctor_id": "D2",
+      "start": "2026-10-15T14:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A064",
+      "patient_id": "P068",
+      "doctor_id": "D4",
+      "start": "2026-10-15T14:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A065",
+      "patient_id": "P039",
+      "doctor_id": "D2",
+      "start": "2026-10-15T14:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A066",
+      "patient_id": "P097",
+      "doctor_id": "D6",
+      "start": "2026-10-15T14:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A067",
+      "patient_id": "P040",
+      "doctor_id": "D2",
+      "start": "2026-10-15T15:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A068",
+      "patient_id": "P069",
+      "doctor_id": "D4",
+      "start": "2026-10-15T15:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A069",
+      "patient_id": "P041",
+      "doctor_id": "D2",
+      "start": "2026-10-15T15:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A070",
+      "patient_id": "P070",
+      "doctor_id": "D4",
+      "start": "2026-10-15T16:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A071",
+      "patient_id": "P071",
+      "doctor_id": "D4",
+      "start": "2026-10-15T16:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A072",
+      "patient_id": "P024",
+      "doctor_id": "D1",
+      "start": "2026-10-16T09:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A073",
+      "patient_id": "P082",
+      "doctor_id": "D5",
+      "start": "2026-10-16T09:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A074",
+      "patient_id": "P011",
+      "doctor_id": "D5",
+      "start": "2026-10-16T09:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A075",
+      "patient_id": "P025",
+      "doctor_id": "D1",
+      "start": "2026-10-16T10:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A076",
+      "patient_id": "P083",
+      "doctor_id": "D5",
+      "start": "2026-10-16T10:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A077",
+      "patient_id": "P084",
+      "doctor_id": "D5",
+      "start": "2026-10-16T11:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A078",
+      "patient_id": "P098",
+      "doctor_id": "D6",
+      "start": "2026-10-16T11:00",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A079",
+      "patient_id": "P060",
+      "doctor_id": "D3",
+      "start": "2026-10-16T11:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A080",
+      "patient_id": "P085",
+      "doctor_id": "D5",
+      "start": "2026-10-16T11:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A081",
+      "patient_id": "P026",
+      "doctor_id": "D1",
+      "start": "2026-10-16T12:00",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A082",
+      "patient_id": "P099",
+      "doctor_id": "D6",
+      "start": "2026-10-16T12:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A083",
+      "patient_id": "P061",
+      "doctor_id": "D3",
+      "start": "2026-10-16T12:30",
+      "visit_type": "first_consultation",
+      "status": "booked"
+    },
+    {
+      "id": "A084",
+      "patient_id": "P063",
+      "doctor_id": "D3",
+      "start": "2026-10-16T13:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A085",
+      "patient_id": "P072",
+      "doctor_id": "D4",
+      "start": "2026-10-16T14:00",
+      "visit_type": "report_review",
+      "status": "booked"
+    },
+    {
+      "id": "A086",
+      "patient_id": "P073",
+      "doctor_id": "D4",
+      "start": "2026-10-16T14:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A087",
+      "patient_id": "P100",
+      "doctor_id": "D6",
+      "start": "2026-10-16T14:30",
+      "visit_type": "follow_up",
+      "status": "booked"
+    },
+    {
+      "id": "A088",
+      "patient_id": "P074",
+      "doctor_id": "D4",
+      "start": "2026-10-16T15:30",
+      "visit_type": "report_review",
+      "status": "booked"
+    }
+  ]
+}
