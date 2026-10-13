@@ -206,6 +206,8 @@ def validate(data):
     assert all(len(v) == 1 for v in per_patient.values()), "a patient has >1 booking"
     for p in data["patients"]:
         assert len(p["phone"]) == 10 and p["phone"].isdigit(), p
+    keys = [(p["name"].casefold(), p["phone"]) for p in data["patients"]]
+    assert len(keys) == len(set(keys)), "name + phone must identify exactly one patient"
     for d in data["doctors"]:
         n = sum(1 for a in data["appointments"] if a["doctor_id"] == d["id"])
         assert n == int(len(valid_slots[d["id"]]) * BOOKED_FRACTION), (d["id"], n)

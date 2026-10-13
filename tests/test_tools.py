@@ -56,7 +56,7 @@ def test_register_new_patient_then_verify(tools):
     assert tools.verify_patient("Arjun Menon", "9123456789")["patient_id"] == "P101"
 
 
-def test_register_family_member_on_shared_phone(tools):
+def test_register_new_patient_on_shared_phone(tools):
     assert "patient_id" in tools.register_patient("Meera Sharma", "9820011223", 8)
 
 
@@ -221,7 +221,7 @@ def test_g1_failed_verification_unlocks_nothing(tools):
     assert tools.list_appointments_for_patient("P001")["error"] == "not_verified"
 
 
-def test_g1_family_members_each_verified(tools):
+def test_g1_shared_phone_patients_each_verified(tools):
     login(tools, "P001")  # Priya
     assert tools.list_appointments_for_patient("P002")["error"] == "not_verified"  # son not yet
     login(tools, "P002")
