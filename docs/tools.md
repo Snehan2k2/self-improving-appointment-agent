@@ -1,7 +1,7 @@
 # Agent tools
 
 The scheduling agent can only act on the clinic through these tools.
-Guardrails (who may call what, and when) are decided separately and will be added here.
+Guardrails (who may call what, and when) are in [guardrails.md](guardrails.md).
 
 ## Data the tools work on
 
@@ -141,4 +141,5 @@ Every tool returns errors in one shape so the agent can recover:
 {"error": "slot_not_available", "message": "2026-10-14T15:00 is already booked for Dr. Rohan Kapoor"}
 ```
 
-The full list of error codes is defined with the guardrails.
+The message says what went wrong and what to do next. All error codes and the guardrails
+behind them: [guardrails.md](guardrails.md).
