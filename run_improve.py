@@ -1,7 +1,7 @@
 """The improvement loop: eval -> fixer proposes one rule change -> new prompt version -> re-eval -> keep or reject.
 
-    uv run python run_improve.py --rounds 3
-    uv run python run_improve.py --rounds 3 --baseline results/v1_baseline
+    uv run python run_improve.py --rounds 1                                  # starts from the active version
+    uv run python run_improve.py --rounds 1 --baseline results/v1_baseline   # start from a specific version
 
 Each round:
   1. The fixer reads the current version's TRAIN failures (never the held-out ones) and proposes ONE change.
@@ -21,7 +21,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from clinic.prompt import PROMPTS_DIR, load_prompt_spec
+from clinic.prompt import PROMPTS_DIR, active_version, load_prompt_spec
 from evals import fixer
 from evals.harness import make_llm, print_comparison, print_report, run_version, summarize
 from evals.runner import load_scenarios
@@ -182,10 +182,14 @@ def _append_changelog(entry: dict):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rounds", type=int, default=3)
-    ap.add_argument("--baseline", default="results/v1_baseline", help="graded results of the starting version")
+    ap.add_argument("--baseline", default=None,
+                    help="graded results of the starting version (default: results of the active version)")
     ap.add_argument("--workers", type=int, default=4)
     args = ap.parse_args()
 
+    if args.baseline is None:
+        v = active_version()
+        args.baseline = "results/v1_baseline" if v == 1 else f"results/v{v}"
     cur_results = load_results(Path(args.baseline))
     if not cur_results:
         sys.exit(f"no results in {args.baseline}")
