@@ -2,6 +2,8 @@
 
 A chat agent that books doctor appointments for a small clinic. It comes with a test harness that finds the agent's mistakes and improves the agent's instructions on its own.
 
+**Walkthrough video:** [watch the recording](https://drive.google.com/file/d/1UVk8HtcCFF6mzuTdzSyUk4GJP_gmz1y1/view) (what it covers: [recording/](recording/README.md))
+
 ## What's inside
 
 - **The agent.** It chats with patients and books, reschedules or cancels appointments. It works on a made-up clinic in Bengaluru: 6 doctors, 100 patients, one week of slots. It can only act through 8 tools.
@@ -19,7 +21,22 @@ One round of the loop, from v1 to v2:
 | Tests passed (held out, never shown to the fixer) | 3 / 6 | 6 / 6 |
 | Tests that broke | | 0 |
 
-Details are in [results/README.md](results/README.md).
+### Scores by check group
+
+Each test is graded in four groups. A group's score is the share of its checks that passed. The weighted score is the average of the four groups, 25% each. A test passes only if every critical check passes.
+
+| | Train v1 | Train v2 | Held out v1 | Held out v2 | Overall v1 | Overall v2 |
+|---|---|---|---|---|---|---|
+| Database | 100% | 98% | 100% | 100% | 100% | 98% |
+| Tool calls | 87% | 93% | 100% | 100% | 90% | 95% |
+| Text (code) | 60% | 100% | 69% | 100% | 63% | 100% |
+| Judge (LLM) | 73% | 97% | 75% | 100% | 74% | 98% |
+| **Weighted score** | **80%** | **97%** | **86%** | **100%** | **82%** | **98%** |
+| **Tests passed** | **6 / 15** | **13 / 15** | **3 / 6** | **6 / 6** | **9 / 21** | **19 / 21** |
+
+The new rule fixed what the patient sees: Text and Judge both reached 100% on the held-out tests. The small Database drop comes from one test (S17), where the simulated patient broke character. That test was already failing in v1.
+
+The result of every single check, and more detail, is in [results/README.md](results/README.md).
 
 ## Setup
 
@@ -84,3 +101,4 @@ uv run python run_agent.py --show-prompt
 | `results/` | saved results for v1 and v2 |
 | `docs/` | tool and guardrail specs |
 | `DESIGN.md` | the one-page design note |
+| `recording/` | link to the walkthrough video |

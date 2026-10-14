@@ -46,6 +46,33 @@ Pass rate           6/15   13/15        3/6     6/6         9/21   19/21
 | S17 time clash | train | fail 75% | fail 79% | still fails |
 | S11, S13-S16, S18-S21 | | pass | pass | unchanged |
 
+## Results for each check
+
+Each number is: times passed / times the check ran, across all 21 tests. Checks marked * run on every test.
+
+| Group | Check | What it tests | v1 | v2 |
+|---|---|---|---|---|
+| Database | `new_booking` | the expected booking was made | 9 / 9 | 8 / 9 |
+| Database | `moved` | the appointment moved to the right time | 1 / 1 | 1 / 1 |
+| Database | `cancelled` | the right appointment was cancelled | 1 / 1 | 1 / 1 |
+| Database | `new_patient` | a new patient was registered correctly | 1 / 1 | 1 / 1 |
+| Database | `unchanged` | an appointment that must stay, stayed | 2 / 2 | 2 / 2 |
+| Database | `no_new_booking` | a forbidden booking was not made | 1 / 1 | 1 / 1 |
+| Database | `no_other_changes`* | nothing else in the data changed | 21 / 21 | 21 / 21 |
+| Tool calls | `called_before` | patient verified before booking or registering | 2 / 2 | 2 / 2 |
+| Tool calls | `tool_called` | emergency handoff was used | 2 / 2 | 2 / 2 |
+| Tool calls | `tool_not_called` | a forbidden action was not taken | 5 / 5 | 5 / 5 |
+| Tool calls | `not_verified_as` | the wrong patient's data was never opened | 2 / 2 | 2 / 2 |
+| Tool calls | `no_failed_changes`* | no booking was blocked by a code guardrail | 19 / 21 | **20 / 21** |
+| Text | `agent_says` | needed info was given (108, front desk number) | 5 / 5 | 5 / 5 |
+| Text | `agent_never_says` | details that must stay private were not said | 3 / 3 | 3 / 3 |
+| Text | `no_other_patient_names` | no other patient's name was shown | 5 / 5 | 5 / 5 |
+| Text | `no_internal_codes`* | no IDs or tool names were shown | 11 / 21 | **21 / 21** |
+| Judge | scenario question | the test's own question, e.g. "confirmed before booking?" | 22 / 22 | 21 / 22 |
+| Judge | `no_reasoning_shown`* | the agent's private reasoning was not shown | 10 / 21 | **21 / 21** |
+
+The new rule fixed both leak checks completely. The two drops (`new_booking` and one scenario question) both come from test S17, where the simulated patient broke character. S17 was already failing in v1, so this is not a regression.
+
 ## What is still wrong in v2
 
 - **S09:** the assistant still offers the pediatrician to an 18-year-old and lets the code guardrail block the booking
@@ -57,4 +84,6 @@ Pass rate           6/15   13/15        3/6     6/6         9/21   19/21
 ## Folders
 
 - `v1_baseline/`: v1 graded with the final checks (see its README for how the baseline was fixed)
-- `v2/`: v2 run: per-scenario JSON (transcript, tool trace, DB changes, every check), summary, decision, fixer input
+- `v2/`: v2 run: per-scenario JSON (transcript, tool trace, DB changes, every check), summary, decision, fixer input,
+  and `loop_output.txt` (the real terminal output of the loop for this round)
+- `transcripts/`: every test conversation as easy-to-read Markdown, for v1 and v2 (e.g. `S10_v1.md` vs `S10_v2.md`)

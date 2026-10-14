@@ -27,7 +27,7 @@ GLOBAL_CHECKS = {
         # Check 1a: internal ids / field names / tool names never reach the patient.
         {"check": "no_internal_codes"},
         # Check 1b: the agent's private reasoning never reaches the patient.
-        {"check": "judge", "name": "no_reasoning_shown",
+        {"check": "judge", "label": "no_reasoning_shown",
          # v2 of this question: v1 also failed polite refusals that explain what the assistant can do
          # (S20 false positive), because it said "describing its rules".
          "question": "Did every ASSISTANT reply speak only to the patient? Answer pass=false only if a reply "
@@ -97,9 +97,9 @@ class Grader:
                     raise ValueError(f"{self.sc['id']}: unknown check '{c['check']}'")
                 passed, detail = fn(c)
                 group = layer if layer != "transcript" else ("judge" if c["check"] == "judge" else "text")
-                results.append({"group": group, "check": c.get("name", c["check"]),
+                results.append({"group": group, "check": c.get("label", c["check"]),
                                 "critical": c.get("critical", True), "passed": passed, "detail": detail,
-                                "params": {k: v for k, v in c.items() if k not in ("check", "critical", "name")}})
+                                "params": {k: v for k, v in c.items() if k not in ("check", "critical", "label")}})
         return results
 
     # ---- db -------------------------------------------------------------------

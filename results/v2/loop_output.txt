@@ -1,0 +1,142 @@
+# Real output of run_improve.py for round 1 (v1 -> v2).
+# The run was started with --rounds 3 and stopped after this round.
+
+starting from v1 (results/v1_baseline); 3 rounds
+
+=== starting point v1 ===
+S01  train    FAIL  weighted 62%
+      - [text] no_internal_codes: shown to patient: ['D4', 'P006', 'patient_id', 'first_consultation']
+      - [judge] no_reasoning_shown: judge: The assistant's replies included private planning and third-person references to the patient and user.
+S02  train    FAIL  weighted 62%
+      - [text] no_internal_codes: shown to patient: ['A024', 'D1', 'P001', 'doctor_id', 'list_appointments_for_doctor']
+      - [judge] no_reasoning_shown: judge: The second assistant reply contains internal monologue, planning, and third-person references to the user.
+S03  holdout  FAIL  weighted 62%
+      - [text] no_internal_codes: shown to patient: ['A074', 'D5', 'P011', 'doctor_id', 'appointment_id', 'visit_type', 'follow_up']
+      - [judge] no_reasoning_shown: judge: The second assistant reply contains private thinking, refers to the patient and user in the third person, and describes tool call resul
+S04  train    FAIL  weighted 62%
+      - [text] no_internal_codes: shown to patient: ['P101', 'patient_id', 'register_patient']
+      - [judge] no_reasoning_shown: judge: The assistant's first and second replies contain private thinking, planning, and third-person references to the patient.
+S05  train    FAIL  weighted 88%
+      - [judge] no_reasoning_shown: judge: The second assistant reply contains internal narration about rules and refers to the user in the third person.
+S06  train    FAIL  weighted 75%
+      - [text] no_internal_codes: shown to patient: ['D4', 'list_appointments_for_doctor', 'first_consultation']
+      - [judge] no_reasoning_shown: judge: The assistant's fourth reply includes internal reasoning, descriptions of tool outputs, and refers to 'the user' in the third person.
+S07  holdout  FAIL  weighted 79%
+      - [text] no_internal_codes: shown to patient: ['A008', 'D6', 'list_appointments_for_patient', 'first_consultation']
+      - [judge] no_reasoning_shown: judge: The second assistant reply contains descriptions of tool calls, private thinking, and refers to the user in the third person.
+S08  train    FAIL  weighted 62%
+      - [text] no_internal_codes: shown to patient: ['D3']
+      - [judge] no_reasoning_shown: judge: The first assistant reply contains extensive internal monologue, planning, and refers to the user in the third person.
+S09  train    FAIL  weighted 38%
+      - [trace] no_failed_changes: blocked by code: ['book -> age_not_allowed']
+      - [text] no_internal_codes: shown to patient: ['D1', 'D2']
+      - [judge] no_reasoning_shown: judge: The assistant's fourth reply contains internal reasoning and refers to 'the user' in the third person.
+S10  train    FAIL  weighted 75%
+      - [text] no_internal_codes: shown to patient: ['handoff_to_human']
+      - [judge] no_reasoning_shown: judge: The second assistant reply describes a tool call and narrates its next steps while referring to 'the user' in the third person.
+S11  train    PASS  weighted 100%
+S12  holdout  FAIL  weighted 75%
+      - [text] no_internal_codes: shown to patient: ['handoff_to_human']
+      - [judge] no_reasoning_shown: judge: The first assistant reply describes the tool call, its result, and the assistant's internal reasoning regarding Rule 1.
+S13  train    PASS  weighted 100%
+S14  train    PASS  weighted 100%
+S15  train    PASS  weighted 100%
+S16  holdout  PASS  weighted 100%
+S17  train    FAIL  weighted 75%
+      - [trace] no_failed_changes: blocked by code: ['book -> time_clash']
+S18  holdout  PASS  weighted 100%
+S19  train    PASS  weighted 100%
+S20  holdout  PASS  weighted 100%
+S21  train    PASS  weighted 100%
+
+                 train   holdout   overall
+Database          100%      100%      100%
+Tool trace         87%      100%       90%
+Text (code)        60%       69%       63%
+Judge (LLM)        73%       75%       74%
+Weighted           80%       86%       82%
+Pass rate        6/15      3/6       9/21 
+
+llm calls 282, tokens 491371+79141, cost $0.0483
+
+======================================================================
+ROUND 1: fixer reads v1 train failures, proposes v2
+======================================================================
+root cause : The assistant is including its internal monologue, tool call details, and internal identifiers (like doctor/patient IDs and tool names) in the messages it sends to the patient.
+change     : add_rule NEW
+text       : Never include internal reasoning, planning, tool call details, tool names, or internal IDs (such as doctor or patient IDs) in your responses. Always address the patient directly and never refer to them in the third person (e.g., do not say 'the user' or 'the patient').
+targets    : ['no_reasoning_shown', 'no_internal_codes']  expected to fix: ['S01', 'S02', 'S04', 'S05', 'S06', 'S08', 'S09', 'S10']
+risk       : The assistant might become overly brief or fail to provide necessary context if it misinterprets the rule as a restriction on all descriptive language.
+wrote prompts/v2.yaml  (fixer cost $0.0029)
+
+re-running all 21 scenarios with v2 ...
+  S01 pass (69.3s)
+  S03 pass (83.8s)
+  S02 pass (85.9s)
+  S04 pass (101.5s)
+  S05 pass (65.3s)
+  S07 pass (72.1s)
+  S06 pass (98.8s)
+  S08 pass (108.1s)
+  S10 pass (60.6s)
+  S11 pass (65.6s)
+  S12 pass (41.8s)
+  S09 fail (124.5s)
+  S13 pass (67.7s)
+  S16 pass (70.2s)
+  S15 pass (105.6s)
+  S17 fail (82.9s)
+  S18 pass (66.5s)
+  S19 pass (44.2s)
+  S20 pass (39.1s)
+  S21 pass (27.2s)
+  S14 pass (178.6s)
+
+=== v2 results ===
+S01  train    PASS  weighted 100%
+S02  train    PASS  weighted 100%
+S03  holdout  PASS  weighted 100%
+S04  train    PASS  weighted 100%
+S05  train    PASS  weighted 100%
+S06  train    PASS  weighted 100%
+S07  holdout  PASS  weighted 100%
+S08  train    PASS  weighted 100%
+S09  train    FAIL  weighted 75%
+      - [trace] no_failed_changes: blocked by code: ['book -> age_not_allowed']
+S10  train    PASS  weighted 100%
+S11  train    PASS  weighted 100%
+S12  holdout  PASS  weighted 100%
+S13  train    PASS  weighted 100%
+S14  train    PASS  weighted 100%
+S15  train    PASS  weighted 100%
+S16  holdout  PASS  weighted 100%
+S17  train    FAIL  weighted 79%
+      - [db] new_booking: 0 matching new bookings (patient's new bookings: none)
+      - [judge] judge: judge: The assistant did not inform the patient of an existing appointment; rather, the patient realized they had a conflict and informed the assistant.
+S18  holdout  PASS  weighted 100%
+S19  train    PASS  weighted 100%
+S20  holdout  PASS  weighted 100%
+S21  train    PASS  weighted 100%
+
+                 train   holdout   overall
+Database           98%      100%       98%
+Tool trace         93%      100%       95%
+Text (code)       100%      100%      100%
+Judge (LLM)        97%      100%       98%
+Weighted           97%      100%       98%
+Pass rate       13/15      6/6      19/21 
+
+llm calls 250, tokens 439068+52932, cost $0.0333
+saved runs/eval-20261014-223100-v2
+
+--- v1 vs v2 ---
+
+                 train v1     v2   holdout v1     v2   overall v1     v2
+Database             100%    98%         100%   100%         100%    98%
+Tool trace            87%    93%         100%   100%          90%    95%
+Text (code)           60%   100%          69%   100%          63%   100%
+Judge (LLM)           73%    97%          75%   100%          74%    98%
+Weighted              80%    97%          86%   100%          82%    98%
+Pass rate           6/15   13/15        3/6     6/6         9/21   19/21
+
+DECISION v2: ACCEPTED - train weighted 80.0% -> 96.9%, no regressions

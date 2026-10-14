@@ -8,11 +8,12 @@
   "checks": [
     {
       "group": "db",
-      "check": "Arjun Menon",
+      "check": "new_patient",
       "critical": true,
       "passed": true,
       "detail": "registered P101",
       "params": {
+        "name": "Arjun Menon",
         "phone": "9123456789",
         "age": 45
       }

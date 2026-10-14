@@ -288,3 +288,12 @@ def test_weighted_score_is_mean_of_groups():
     s = score_checks(checks)
     assert s["group_scores"] == {"db": 1.0, "trace": 0.0, "text": 1.0, "judge": 0.5}
     assert s["weighted_score"] == 0.625 and s["passed"] is False
+
+
+def test_check_label_does_not_clash_with_name_param():
+    """new_patient has a 'name' param; it must still be reported as 'new_patient'."""
+    sc = SCENARIOS["S04"]
+    checks = Grader(sc, run_from_tools(sc, oracle)).grade()
+    np = next(c for c in checks if c["group"] == "db" and c["params"].get("name") == "Arjun Menon")
+    assert np["check"] == "new_patient" and np["passed"]
+    assert any(c["check"] == "no_reasoning_shown" for c in checks)
