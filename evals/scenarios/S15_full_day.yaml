@@ -1,0 +1,23 @@
+id: S15
+title: ENT is fully booked on the requested day
+group: schedule_rules
+split: train
+setup:
+  - {op: fill_day, doctor: D6, date: "2026-10-15"}
+patient:
+  name: Neha Gupta
+  phone: "9845098450"
+  age: 29
+  goal: Book an ENT doctor for ear pain on Thursday.
+  behaviour:
+    - Ask for Thursday.
+    - If Thursday isn't possible, accept the earliest Friday time offered.
+    - Say yes when asked to confirm.
+  opening: "Hi, I have ear pain. Can I see the ENT doctor on Thursday?"
+max_turns: 10
+expect:
+  db:
+    - {check: new_booking, patient: P006, doctor: D6, date: "2026-10-16"}
+    - {check: no_other_changes}
+  transcript:
+    - {check: judge, question: "Did the assistant say Thursday is fully booked (without offering any Thursday time) and offer another day instead?"}

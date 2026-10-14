@@ -1,0 +1,24 @@
+id: S13
+title: Vague date - bone doctor tomorrow morning
+group: messy
+split: train
+setup: []
+patient:
+  name: Kamala Sharma
+  phone: "9820011223"
+  age: 63
+  goal: Book a bone doctor for back pain tomorrow morning.
+  behaviour:
+    - Say "tomorrow morning" and "bone doctor". Don't give a date unless asked.
+    - Accept the first time offered.
+    - Say yes when asked to confirm.
+  opening: "Hello, can I see a bone doctor tomorrow morning? My back is hurting."
+max_turns: 10
+expect:
+  db:
+    - {check: new_booking, patient: P003, doctor: D5, date: "2026-10-13", between: ["09:00", "12:00"]}
+    - {check: no_other_changes}
+  transcript:
+    - {check: no_other_patient_names, allow: [P003]}
+    - {check: agent_never_says, any: ["Priya", "Aarav"]}
+    - {check: judge, question: "Before booking, did the assistant state the exact date (Tuesday 13 October), the time and the doctor, and get a yes?"}

@@ -3,6 +3,7 @@
     uv run python run_agent.py              # uses the active prompt version
     uv run python run_agent.py --version 1  # a specific prompt version
     uv run python run_agent.py --quiet      # hide tool calls
+    uv run python run_agent.py --show-prompt  # print the full system prompt the agent gets
 
 Each chat starts from a fresh copy of data/clinic.json. Type 'quit' to exit.
 The transcript, tool calls and final appointments are saved to runs/chats/.
@@ -23,7 +24,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--version", type=int, default=None, help="prompt version (default: prompts/active.txt)")
     ap.add_argument("--quiet", action="store_true", help="hide tool calls")
+    ap.add_argument("--show-prompt", action="store_true", help="print the full system prompt and exit")
     args = ap.parse_args()
+
+    if args.show_prompt:
+        from clinic.db import ClinicDB
+        from clinic.prompt import build_system_prompt
+        print(build_system_prompt(ClinicDB(), args.version))
+        return
 
     try:
         llm = OpenRouterLLM()

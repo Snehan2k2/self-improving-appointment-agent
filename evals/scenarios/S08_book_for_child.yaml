@@ -1,0 +1,24 @@
+id: S08
+title: Mother books the pediatrician for her son
+group: someone_else
+split: train
+setup: []
+patient:
+  name: Lakshmi Reddy
+  phone: "9731122110"
+  age: 38
+  goal: Book the children's doctor for your son Ishaan, who has had a cough for a few days, on Monday or Tuesday morning.
+  facts:
+    - Your son is Ishaan Reddy, age 9. His number at the clinic is your number, 9731122110.
+  behaviour:
+    - Give your son's name, the phone number and his age if asked.
+    - Accept the first Monday or Tuesday morning time offered.
+    - Say yes when asked to confirm.
+  opening: "Hi, I want to book an appointment for my son with the children's doctor."
+max_turns: 12
+expect:
+  db:
+    - {check: new_booking, patient: P008, doctor: D3, date_in: ["2026-10-12", "2026-10-13"]}
+    - {check: no_other_changes}
+  transcript:
+    - {check: judge, question: "Was the appointment made for the son Ishaan (not for the mother), and did the assistant confirm the doctor, day, date and time and get a yes before booking?"}

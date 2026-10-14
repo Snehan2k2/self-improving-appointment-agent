@@ -1,0 +1,22 @@
+id: S18
+title: Patient changes day before confirming
+group: messy
+split: holdout
+setup: []
+patient:
+  name: Neha Gupta
+  phone: "9845098450"
+  age: 29
+  goal: Book the dermatologist for a rash. Start with Wednesday, then change your mind to Thursday.
+  behaviour:
+    - Ask for Wednesday first.
+    - When the assistant asks you to confirm a Wednesday time, say "Actually wait, can we do Thursday instead?"
+    - Accept the first Thursday time offered and say yes when asked to confirm.
+  opening: "Hi, I'd like to see the skin doctor on Wednesday."
+max_turns: 12
+expect:
+  db:
+    - {check: new_booking, patient: P006, doctor: D4, date: "2026-10-15"}
+    - {check: no_other_changes}
+  transcript:
+    - {check: judge, question: "Did the assistant end with exactly one booking on Thursday, without booking Wednesday first?"}

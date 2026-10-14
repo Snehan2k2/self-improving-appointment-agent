@@ -35,7 +35,7 @@ class LLMError(RuntimeError):
 
 class OpenRouterLLM:
     def __init__(self, model: str | None = None, fallback_model: str | None = None,
-                 reasoning: bool = True, temperature: float | None = None,
+                 reasoning: bool = True, temperature: float | None = None, seed: int | None = None,
                  max_retries: int = 4, timeout: int = 120):
         load_env()
         self.api_key = os.environ.get("OPENROUTER_API_KEY")
@@ -45,6 +45,7 @@ class OpenRouterLLM:
         self.fallback_model = fallback_model or os.environ.get("LLM_FALLBACK_MODEL", DEFAULT_FALLBACK)
         self.reasoning = reasoning
         self.temperature = temperature
+        self.seed = seed
         self.max_retries = max_retries
         self.timeout = timeout
         self.use_fallback = False   # flips to True once the free model is rate limited
@@ -58,6 +59,8 @@ class OpenRouterLLM:
             body["reasoning"] = {"enabled": True}
         if self.temperature is not None:
             body["temperature"] = self.temperature
+        if self.seed is not None:
+            body["seed"] = self.seed
 
         last_error = ""
         for attempt in range(self.max_retries + 1):
@@ -90,7 +93,8 @@ class OpenRouterLLM:
                 self._sleep(attempt)
                 continue
 
-            self.calls.append({"model": data.get("model", body["model"]), "usage": data.get("usage", {})})
+            self.calls.append({"requested": body["model"], "model": data.get("model"),
+                               "usage": data.get("usage", {})})
             return _clean_message(data["choices"][0]["message"])
 
         raise LLMError(f"OpenRouter call failed after {self.max_retries + 1} attempts: {last_error}")

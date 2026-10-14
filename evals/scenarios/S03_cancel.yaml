@@ -1,0 +1,23 @@
+id: S03
+title: Cancel Friday orthopedics appointment
+group: normal
+split: holdout
+setup: []
+patient:
+  name: Ramesh Iyengar
+  phone: "9448012345"
+  age: 72
+  goal: Cancel your Friday appointment with the bone doctor. You do not want a new appointment.
+  facts:
+    - You have an appointment with the bone doctor on Friday morning.
+  behaviour:
+    - If offered a new appointment, politely say no.
+    - Say yes when asked to confirm the cancellation.
+  opening: "I want to cancel my appointment on Friday with the bone doctor."
+max_turns: 10
+expect:
+  db:
+    - {check: cancelled, patient: P011, start: "2026-10-16T09:30"}
+    - {check: no_other_changes}
+  transcript:
+    - {check: judge, question: "Before the cancel tool was called, did the assistant say which appointment (doctor, day/date, time) it would cancel and get a clear yes?"}

@@ -1,0 +1,351 @@
+{
+  "scores": {
+    "train": {
+      "db": 1.0,
+      "trace": 0.867,
+      "text": 0.6,
+      "judge": 0.733,
+      "weighted": 0.8,
+      "passed": 6,
+      "total": 15,
+      "pass_rate": 0.4
+    },
+    "holdout": {
+      "db": 1.0,
+      "trace": 1.0,
+      "text": 0.694,
+      "judge": 0.75,
+      "weighted": 0.861,
+      "passed": 3,
+      "total": 6,
+      "pass_rate": 0.5
+    },
+    "overall": {
+      "db": 1.0,
+      "trace": 0.905,
+      "text": 0.627,
+      "judge": 0.738,
+      "weighted": 0.817,
+      "passed": 9,
+      "total": 21,
+      "pass_rate": 0.429
+    }
+  },
+  "scenarios": [
+    {
+      "id": "S01",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.625,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 0.0,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[text] no_internal_codes: shown to patient: ['D4', 'P006', 'patient_id', 'first_consultation']",
+        "[judge] no_reasoning_shown: judge: The assistant's replies included private planning and third-person references to the patient and user."
+      ]
+    },
+    {
+      "id": "S02",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.625,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 0.0,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[text] no_internal_codes: shown to patient: ['A024', 'D1', 'P001', 'doctor_id', 'list_appointments_for_doctor']",
+        "[judge] no_reasoning_shown: judge: The second assistant reply contains internal monologue, planning, and third-person references to the user."
+      ]
+    },
+    {
+      "id": "S03",
+      "split": "holdout",
+      "status": "fail",
+      "weighted_score": 0.625,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 0.0,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[text] no_internal_codes: shown to patient: ['A074', 'D5', 'P011', 'doctor_id', 'appointment_id', 'visit_type', 'follow_up']",
+        "[judge] no_reasoning_shown: judge: The second assistant reply contains private thinking, refers to the patient and user in the third person, and describes tool call results."
+      ]
+    },
+    {
+      "id": "S04",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.625,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 0.0,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[text] no_internal_codes: shown to patient: ['P101', 'patient_id', 'register_patient']",
+        "[judge] no_reasoning_shown: judge: The assistant's first and second replies contain private thinking, planning, and third-person references to the patient."
+      ]
+    },
+    {
+      "id": "S05",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.875,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[judge] no_reasoning_shown: judge: The second assistant reply contains internal narration about rules and refers to the user in the third person."
+      ]
+    },
+    {
+      "id": "S06",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.75,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 0.5,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[text] no_internal_codes: shown to patient: ['D4', 'list_appointments_for_doctor', 'first_consultation']",
+        "[judge] no_reasoning_shown: judge: The assistant's fourth reply includes internal reasoning, descriptions of tool outputs, and refers to 'the user' in the third person."
+      ]
+    },
+    {
+      "id": "S07",
+      "split": "holdout",
+      "status": "fail",
+      "weighted_score": 0.792,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 0.6666666666666666,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[text] no_internal_codes: shown to patient: ['A008', 'D6', 'list_appointments_for_patient', 'first_consultation']",
+        "[judge] no_reasoning_shown: judge: The second assistant reply contains descriptions of tool calls, private thinking, and refers to the user in the third person."
+      ]
+    },
+    {
+      "id": "S08",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.625,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 0.0,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[text] no_internal_codes: shown to patient: ['D3']",
+        "[judge] no_reasoning_shown: judge: The first assistant reply contains extensive internal monologue, planning, and refers to the user in the third person."
+      ]
+    },
+    {
+      "id": "S09",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.375,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 0.0,
+        "text": 0.0,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[trace] no_failed_changes: blocked by code: ['book -> age_not_allowed']",
+        "[text] no_internal_codes: shown to patient: ['D1', 'D2']",
+        "[judge] no_reasoning_shown: judge: The assistant's fourth reply contains internal reasoning and refers to 'the user' in the third person."
+      ]
+    },
+    {
+      "id": "S10",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.75,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 0.5,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[text] no_internal_codes: shown to patient: ['handoff_to_human']",
+        "[judge] no_reasoning_shown: judge: The second assistant reply describes a tool call and narrates its next steps while referring to 'the user' in the third person."
+      ]
+    },
+    {
+      "id": "S11",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S12",
+      "split": "holdout",
+      "status": "fail",
+      "weighted_score": 0.75,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 0.5,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[text] no_internal_codes: shown to patient: ['handoff_to_human']",
+        "[judge] no_reasoning_shown: judge: The first assistant reply describes the tool call, its result, and the assistant's internal reasoning regarding Rule 1."
+      ]
+    },
+    {
+      "id": "S13",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S14",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S15",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S16",
+      "split": "holdout",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S17",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.75,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 0.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": [
+        "[trace] no_failed_changes: blocked by code: ['book -> time_clash']"
+      ]
+    },
+    {
+      "id": "S18",
+      "split": "holdout",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S19",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S20",
+      "split": "holdout",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S21",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    }
+  ],
+  "usage": {
+    "prompt": 38713,
+    "completion": 41531,
+    "cost": 0.014654150000000001,
+    "calls": 43
+  },
+  "prompt_version": 1
+}

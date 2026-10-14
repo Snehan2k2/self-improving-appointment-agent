@@ -1,0 +1,22 @@
+id: S14
+title: Wants Dr. Kapoor on his day off
+group: schedule_rules
+split: train
+setup: []
+patient:
+  name: Lakshmi Reddy
+  phone: "9731122110"
+  age: 38
+  goal: Book Dr. Kapoor (dermatologist) for hair fall on Tuesday.
+  behaviour:
+    - Ask for Tuesday specifically.
+    - If Tuesday isn't possible, accept the earliest Wednesday time offered.
+    - Say yes when asked to confirm.
+  opening: "Hi, can I book Dr. Kapoor on Tuesday? It's about hair fall."
+max_turns: 10
+expect:
+  db:
+    - {check: new_booking, patient: P007, doctor: D4, date: "2026-10-14"}
+    - {check: no_other_changes}
+  transcript:
+    - {check: judge, question: "Did the assistant tell the patient that Dr. Kapoor does not work on Tuesday, and only offer times on days he works?"}

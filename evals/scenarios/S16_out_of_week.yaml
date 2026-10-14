@@ -1,0 +1,21 @@
+id: S16
+title: Asks for a date outside the bookable week
+group: schedule_rules
+split: holdout
+setup: []
+patient:
+  name: Neha Gupta
+  phone: "9845098450"
+  age: 29
+  goal: Book Dr. Kapoor next Monday, 19 October. You are travelling this week, so no other day works.
+  behaviour:
+    - Only 19 October works for you. Do not accept any day this week.
+    - If it can't be done, thank them and end the chat.
+  opening: "Hi, can I book Dr. Kapoor next Monday, 19 October?"
+max_turns: 8
+expect:
+  db:
+    - {check: no_other_changes}
+  transcript:
+    - {check: agent_says, any: ["080-41234567", "08041234567", "080 41234567"]}
+    - {check: judge, question: "Did the assistant explain that 19 October cannot be booked yet (only this week is open) without pretending to book it?"}

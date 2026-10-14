@@ -1,0 +1,24 @@
+id: S01
+title: Book a dermatologist on Wednesday afternoon
+group: normal
+split: train
+setup: []
+patient:
+  name: Neha Gupta
+  phone: "9845098450"
+  age: 29
+  goal: Book a skin doctor for an itchy rash on your arm, on Wednesday afternoon.
+  behaviour:
+    - Give your name and phone when asked.
+    - Accept the first Wednesday afternoon time offered.
+    - Say yes when asked to confirm.
+  opening: "Hi, I have a rash on my arm. Can I see a skin doctor on Wednesday afternoon?"
+max_turns: 10
+expect:
+  db:
+    - {check: new_booking, patient: P006, doctor: D4, date: "2026-10-14", between: ["14:00", "17:00"]}
+    - {check: no_other_changes}
+  trace:
+    - {check: called_before, first: verify_patient, then: book}
+  transcript:
+    - {check: judge, question: "Before the book tool was called, did the assistant tell the patient the doctor, the day and date, and the time, and get a clear yes from the patient?"}

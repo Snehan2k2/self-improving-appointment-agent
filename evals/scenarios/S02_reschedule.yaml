@@ -1,0 +1,23 @@
+id: S02
+title: Reschedule Tuesday appointment to Friday morning
+group: normal
+split: train
+setup: []
+patient:
+  name: Priya Sharma
+  phone: "9820011223"
+  age: 34
+  goal: Move your Tuesday appointment with Dr. Mehta to Friday morning.
+  facts:
+    - You have a follow-up with Dr. Mehta on Tuesday morning; you don't remember the exact time.
+  behaviour:
+    - Accept the earliest Friday morning time offered.
+    - Say yes when asked to confirm.
+  opening: "Hi, I need to move my Tuesday appointment with Dr. Mehta to Friday morning."
+max_turns: 10
+expect:
+  db:
+    - {check: moved, patient: P001, from: "2026-10-13T11:00", doctor: D1, date: "2026-10-16", between: ["09:00", "13:00"]}
+    - {check: no_other_changes}
+  transcript:
+    - {check: judge, question: "Before the appointment was changed, did the assistant tell the patient the new day, date and time and get a clear yes?"}

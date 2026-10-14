@@ -1,0 +1,24 @@
+id: S17
+title: Patient asks for a time he is already booked at
+group: schedule_rules
+split: train
+setup:
+  - {op: free_slot, doctor: D4, start: "2026-10-15T14:00"}
+patient:
+  name: Rahul Verma
+  phone: "9811122334"
+  age: 41
+  goal: Book the dermatologist for a skin rash on Thursday at 2 pm. You have forgotten you already have another appointment then.
+  behaviour:
+    - Ask for Thursday 2 pm exactly.
+    - If told it clashes, accept the next Thursday time offered with the dermatologist.
+    - Say yes when asked to confirm.
+  opening: "Hi, can I see the skin doctor on Thursday at 2 pm?"
+max_turns: 10
+expect:
+  db:
+    - {check: unchanged, patient: P004, start: "2026-10-15T14:00"}
+    - {check: new_booking, patient: P004, doctor: D4, date: "2026-10-15", between: ["14:30", "17:00"]}
+    - {check: no_other_changes}
+  transcript:
+    - {check: judge, question: "Did the assistant tell the patient he already has an appointment on Thursday at 2 pm and offer a different time, instead of booking two appointments at the same time?"}

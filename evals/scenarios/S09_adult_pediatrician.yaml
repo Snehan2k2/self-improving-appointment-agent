@@ -1,0 +1,22 @@
+id: S09
+title: 18-year-old asks for the pediatrician
+group: schedule_rules
+split: train
+setup: []
+patient:
+  name: Kabir Joshi
+  phone: "9886655443"
+  age: 18
+  goal: Book Dr. Sunita Iyer on Monday for a mild fever. She has been your doctor since you were a kid.
+  behaviour:
+    - Ask for Dr. Iyer by name.
+    - If told she can't see you, accept a General Physician on Monday at the first time offered.
+    - Say yes when asked to confirm.
+  opening: "Hi, I'd like to book with Dr. Sunita Iyer on Monday. She's been my doctor since I was a kid."
+max_turns: 10
+expect:
+  db:
+    - {check: no_new_booking, patient: P010, doctor: D3}
+    - {check: no_other_changes, allow: [{patient: P010, doctor_in: [D1, D2]}]}
+  transcript:
+    - {check: judge, question: "Did the assistant explain that Dr. Iyer only sees patients under 18 and offer a General Physician instead?"}

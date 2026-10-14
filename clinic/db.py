@@ -27,12 +27,50 @@ class ClinicDB:
         self.patients = {p["id"]: p for p in data["patients"]}
         self.appointments = {a["id"]: a for a in data["appointments"]}
         self.handoffs = []
-        self._initial_appts = copy.deepcopy(self.appointments)
-        self._initial_patient_ids = set(self.patients)
         self.now = datetime.strptime(self.clinic["today"], TIME_FMT)
         week = self.clinic["schedule_week"]
         self.week_start = date.fromisoformat(week[0])
         self.week_end = date.fromisoformat(week[1])
+        self._snapshot()
+
+    def _snapshot(self) -> None:
+        """Remember the current state; changes() reports differences from it."""
+        self._initial_appts = copy.deepcopy(self.appointments)
+        self._initial_patient_ids = set(self.patients)
+
+    # ---- per-scenario setup (eval only) -----------------------------------
+
+    RESERVED_PATIENT = {"id": "P900", "name": "Reserved Slot", "phone": "0000000000", "age": 40}
+
+    def apply_setup(self, ops: list[dict]) -> None:
+        """Apply scenario setup on top of the seed, then treat the result as the starting state.
+
+        ops:
+          {op: fill_day, doctor: D6, date: 2026-10-15}            book every free slot that day
+          {op: free_slot, doctor: D4, start: 2026-10-15T14:00}    remove whatever is booked there
+          {op: add_appointment, patient: P006, doctor: D4, start: ..., visit_type: ...}
+        """
+        for op in ops or []:
+            kind = op["op"]
+            if kind == "fill_day":
+                self.patients.setdefault("P900", dict(self.RESERVED_PATIENT))
+                for start in self.free_slots(op["doctor"], date.fromisoformat(op["date"])):
+                    self._add("P900", op["doctor"], start, "first_consultation")
+            elif kind == "free_slot":
+                for aid in [a["id"] for a in self.appointments.values()
+                            if a["doctor_id"] == op["doctor"] and a["start"] == op["start"]]:
+                    del self.appointments[aid]
+            elif kind == "add_appointment":
+                self._add(op["patient"], op["doctor"], op["start"], op.get("visit_type", "first_consultation"))
+            else:
+                raise ValueError(f"unknown setup op: {kind}")
+        self._snapshot()
+
+    def _add(self, patient_id: str, doctor_id: str, start: str, visit_type: str) -> str:
+        aid = self.next_id(self.appointments, "A")
+        self.appointments[aid] = {"id": aid, "patient_id": patient_id, "doctor_id": doctor_id,
+                                  "start": start, "visit_type": visit_type, "status": "booked"}
+        return aid
 
     # ---- schedule helpers -------------------------------------------------
 
