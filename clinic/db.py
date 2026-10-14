@@ -27,6 +27,8 @@ class ClinicDB:
         self.patients = {p["id"]: p for p in data["patients"]}
         self.appointments = {a["id"]: a for a in data["appointments"]}
         self.handoffs = []
+        self._initial_appts = copy.deepcopy(self.appointments)
+        self._initial_patient_ids = set(self.patients)
         self.now = datetime.strptime(self.clinic["today"], TIME_FMT)
         week = self.clinic["schedule_week"]
         self.week_start = date.fromisoformat(week[0])
@@ -66,6 +68,21 @@ class ClinicDB:
     def free_slots(self, doctor_id: str, d: date, exclude_id: str | None = None) -> list[str]:
         taken = set(self.booked_starts(doctor_id, d, exclude_id))
         return [s for s in self.doctor_slots(doctor_id, d) if s not in taken]
+
+    # ---- what changed in this run -----------------------------------------
+
+    def changes(self) -> dict:
+        """Everything that differs from the state this DB started with."""
+        appts = []
+        for aid, a in self.appointments.items():
+            before = self._initial_appts.get(aid)
+            if before != a:
+                appts.append({"appointment_id": aid, "before": before, "after": copy.deepcopy(a)})
+        return {
+            "new_patients": [self.patients[p] for p in self.patients if p not in self._initial_patient_ids],
+            "appointments": appts,
+            "handoffs": list(self.handoffs),
+        }
 
     # ---- id helpers -------------------------------------------------------
 
