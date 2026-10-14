@@ -202,18 +202,25 @@ def test_clean_message_keeps_only_needed_fields():
 
 
 class FakeResp:
-    def __init__(self, status, data=None):
-        self.status_code, self._data, self.text = status, data or {}, json.dumps(data or {})
+    def __init__(self, status, data=None, chunks=None):
+        self.status_code = status
+        self.chunks = chunks if chunks is not None else [json.dumps(data or {}).encode()]
 
-    def json(self):
-        return self._data
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+    def iter_content(self, chunk_size=None):
+        yield from self.chunks
 
 
 def test_free_model_rate_limit_falls_back_to_paid(monkeypatch):
     monkeypatch.setenv("OPENROUTER_API_KEY", "test")
     sent = []
 
-    def fake_post(url, json, timeout, headers):
+    def fake_post(url, json, timeout, headers, stream=False):
         sent.append(json["model"])
         if json["model"].endswith(":free"):
             return FakeResp(429, {"error": {"message": "rate limited"}})
@@ -232,3 +239,39 @@ def test_missing_key_gives_clear_error(monkeypatch):
     monkeypatch.setattr(llm_mod, "load_env", lambda *a, **k: None)
     with pytest.raises(llm_mod.LLMError, match="OPENROUTER_API_KEY"):
         OpenRouterLLM()
+
+
+def test_total_deadline_stops_endless_keepalive(monkeypatch):
+    """OpenRouter sends keep-alive bytes while a request hangs; the per-byte timeout never fires.
+    The client must still give up after its TOTAL timeout."""
+    monkeypatch.setenv("OPENROUTER_API_KEY", "test")
+    monkeypatch.setattr(llm_mod.time, "sleep", lambda s: None)
+
+    def endless_keepalive():
+        while True:
+            yield b"\n"
+
+    calls = []
+
+    def fake_post(url, json, timeout, headers, stream=False):
+        calls.append(1)
+        return FakeResp(200, chunks=endless_keepalive())
+
+    monkeypatch.setattr(llm_mod.requests, "post", fake_post)
+    llm = OpenRouterLLM(model="m", fallback_model="m", timeout=0, max_retries=1)
+    with pytest.raises(llm_mod.LLMError, match="no complete response"):
+        llm.chat([{"role": "user", "content": "x"}])
+    assert len(calls) == 2   # first try + one retry, then gives up
+
+
+def test_request_has_output_cap(monkeypatch):
+    monkeypatch.setenv("OPENROUTER_API_KEY", "test")
+    seen = {}
+
+    def fake_post(url, json, timeout, headers, stream=False):
+        seen.update(json)
+        return FakeResp(200, {"choices": [{"message": {"content": "hi"}}]})
+
+    monkeypatch.setattr(llm_mod.requests, "post", fake_post)
+    OpenRouterLLM(model="m").chat([{"role": "user", "content": "x"}])
+    assert seen["max_tokens"] == 8000

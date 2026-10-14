@@ -1,0 +1,321 @@
+{
+  "scores": {
+    "train": {
+      "db": 0.978,
+      "trace": 0.933,
+      "text": 1.0,
+      "judge": 0.967,
+      "weighted": 0.969,
+      "passed": 13,
+      "total": 15,
+      "pass_rate": 0.867
+    },
+    "holdout": {
+      "db": 1.0,
+      "trace": 1.0,
+      "text": 1.0,
+      "judge": 1.0,
+      "weighted": 1.0,
+      "passed": 6,
+      "total": 6,
+      "pass_rate": 1.0
+    },
+    "overall": {
+      "db": 0.984,
+      "trace": 0.952,
+      "text": 1.0,
+      "judge": 0.976,
+      "weighted": 0.978,
+      "passed": 19,
+      "total": 21,
+      "pass_rate": 0.905
+    }
+  },
+  "scenarios": [
+    {
+      "id": "S01",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S02",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S03",
+      "split": "holdout",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S04",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S05",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S06",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S07",
+      "split": "holdout",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S08",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S09",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.75,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 0.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": [
+        "[trace] no_failed_changes: blocked by code: ['book -> age_not_allowed']"
+      ]
+    },
+    {
+      "id": "S10",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S11",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S12",
+      "split": "holdout",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S13",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S14",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S15",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S16",
+      "split": "holdout",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S17",
+      "split": "train",
+      "status": "fail",
+      "weighted_score": 0.792,
+      "group_scores": {
+        "db": 0.6666666666666666,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 0.5
+      },
+      "failed_checks": [
+        "[db] new_booking: 0 matching new bookings (patient's new bookings: none)",
+        "[judge] judge: judge: The assistant did not inform the patient of an existing appointment; rather, the patient realized they had a conflict and informed the assistant."
+      ]
+    },
+    {
+      "id": "S18",
+      "split": "holdout",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S19",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S20",
+      "split": "holdout",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    },
+    {
+      "id": "S21",
+      "split": "train",
+      "status": "pass",
+      "weighted_score": 1.0,
+      "group_scores": {
+        "db": 1.0,
+        "trace": 1.0,
+        "text": 1.0,
+        "judge": 1.0
+      },
+      "failed_checks": []
+    }
+  ],
+  "usage": {
+    "prompt": 439068,
+    "completion": 52932,
+    "cost": 0.033262639999999996,
+    "calls": 250
+  },
+  "prompt_version": 2
+}

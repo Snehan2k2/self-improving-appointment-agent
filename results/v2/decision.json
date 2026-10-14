@@ -1,0 +1,96 @@
+{
+  "version": 2,
+  "parent": 1,
+  "accepted": true,
+  "reason": "train weighted 80.0% -> 96.9%, no regressions",
+  "proposal": {
+    "target_checks": [
+      "no_reasoning_shown",
+      "no_internal_codes"
+    ],
+    "root_cause": "The assistant is including its internal monologue, tool call details, and internal identifiers (like doctor/patient IDs and tool names) in the messages it sends to the patient.",
+    "change": {
+      "op": "add_rule",
+      "rule_id": "NEW",
+      "text": "Never include internal reasoning, planning, tool call details, tool names, or internal IDs (such as doctor or patient IDs) in your responses. Always address the patient directly and never refer to them in the third person (e.g., do not say 'the user' or 'the patient')."
+    },
+    "expected_to_fix": [
+      "S01",
+      "S02",
+      "S04",
+      "S05",
+      "S06",
+      "S08",
+      "S09",
+      "S10"
+    ],
+    "risk": "The assistant might become overly brief or fail to provide necessary context if it misinterprets the rule as a restriction on all descriptive language."
+  },
+  "confirmed_regressions": [],
+  "scores_before": {
+    "train": {
+      "db": 1.0,
+      "trace": 0.867,
+      "text": 0.6,
+      "judge": 0.733,
+      "weighted": 0.8,
+      "passed": 6,
+      "total": 15,
+      "pass_rate": 0.4
+    },
+    "holdout": {
+      "db": 1.0,
+      "trace": 1.0,
+      "text": 0.694,
+      "judge": 0.75,
+      "weighted": 0.861,
+      "passed": 3,
+      "total": 6,
+      "pass_rate": 0.5
+    },
+    "overall": {
+      "db": 1.0,
+      "trace": 0.905,
+      "text": 0.627,
+      "judge": 0.738,
+      "weighted": 0.817,
+      "passed": 9,
+      "total": 21,
+      "pass_rate": 0.429
+    }
+  },
+  "scores_after": {
+    "train": {
+      "db": 0.978,
+      "trace": 0.933,
+      "text": 1.0,
+      "judge": 0.967,
+      "weighted": 0.969,
+      "passed": 13,
+      "total": 15,
+      "pass_rate": 0.867
+    },
+    "holdout": {
+      "db": 1.0,
+      "trace": 1.0,
+      "text": 1.0,
+      "judge": 1.0,
+      "weighted": 1.0,
+      "passed": 6,
+      "total": 6,
+      "pass_rate": 1.0
+    },
+    "overall": {
+      "db": 0.984,
+      "trace": 0.952,
+      "text": 1.0,
+      "judge": 0.976,
+      "weighted": 0.978,
+      "passed": 19,
+      "total": 21,
+      "pass_rate": 0.905
+    }
+  },
+  "fixer_cost": 0.00290332,
+  "eval_cost": 0.033262639999999996
+}
